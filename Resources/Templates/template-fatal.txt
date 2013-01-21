@@ -1,0 +1,32 @@
+Beim Versuch eine Datei mit folgendem Namen:
+-----------------------------------------------------------------
+###file###
+-----------------------------------------------------------------
+
+auf den FTP Server zu übertragen ist leider ein Fehler aufgetreten:
+-----------------------------------------------------------------
+###errors###
+-----------------------------------------------------------------
+
+Das Zielverzeichniss am Server war:
+-----------------------------------------------------------------
+###target###
+-----------------------------------------------------------------
+
+Die Datei konnte auch nicht in folgendes
+Verzeichnis auf dem lokalen System verschoben werden:
+-----------------------------------------------------------------
+###failed###
+-----------------------------------------------------------------
+
+Dies ist ein SCHWERWIEGENDER Fehler. Bitte überprüfen Sie
+den Systemzustand oder kontaktieren Sie Ihren Systembetreuer.
+
+
+
+Dies ist eine automatisch generierte Nachricht.
+Bitte antworten Sie nicht direkt auf dieses Mail.
+--
+web:consulting FTP services
+
+

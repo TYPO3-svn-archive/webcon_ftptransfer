@@ -1,0 +1,223 @@
+
+kpathsea: Running mktextfm ptmr8t
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8t
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf ptmr8t
+
+! I can't find file `ptmr8t'.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8t
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8t
+                                                  
+Transcript written on mfput.log.
+grep: ptmr8t.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8t' failed to make ptmr8t.tfm.
+kpathsea: Appending font creation commands to missfont.log.
+
+kpathsea: Running mktextfm ptmr8t
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8t
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf ptmr8t
+
+! I can't find file `ptmr8t'.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8t
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8t
+                                                  
+Transcript written on mfput.log.
+grep: ptmr8t.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8t' failed to make ptmr8t.tfm.
+
+kpathsea: Running mktextfm ptmr8t
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8t
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf ptmr8t
+
+! I can't find file `ptmr8t'.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8t
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8t
+                                                  
+Transcript written on mfput.log.
+grep: ptmr8t.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8t' failed to make ptmr8t.tfm.
+
+kpathsea: Running mktextfm ptmr8t
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8t
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf ptmr8t
+
+! I can't find file `ptmr8t'.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8t
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8t
+                                                  
+Transcript written on mfput.log.
+grep: ptmr8t.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8t' failed to make ptmr8t.tfm.
+
+kpathsea: Running mktextfm phvr8t
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input phvr8t
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf phvr8t
+
+! I can't find file `phvr8t'.
+<*> ...:=ljfour; mag:=1; nonstopmode; input phvr8t
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...:=ljfour; mag:=1; nonstopmode; input phvr8t
+                                                  
+Transcript written on mfput.log.
+grep: phvr8t.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input phvr8t' failed to make phvr8t.tfm.
+
+kpathsea: Running mktextfm phvb8t
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input phvb8t
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf phvb8t
+
+! I can't find file `phvb8t'.
+<*> ...:=ljfour; mag:=1; nonstopmode; input phvb8t
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...:=ljfour; mag:=1; nonstopmode; input phvb8t
+                                                  
+Transcript written on mfput.log.
+grep: phvb8t.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input phvb8t' failed to make phvb8t.tfm.
+
+kpathsea: Running mktextfm nullfont
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input nullfont
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf nullfont
+
+! I can't find file `nullfont'.
+<*> ...ljfour; mag:=1; nonstopmode; input nullfont
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...ljfour; mag:=1; nonstopmode; input nullfont
+                                                  
+Transcript written on mfput.log.
+grep: nullfont.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input nullfont' failed to make nullfont.tfm.
+
+kpathsea: Running mktextfm ptmr8t
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8t
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf ptmr8t
+
+! I can't find file `ptmr8t'.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8t
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8t
+                                                  
+Transcript written on mfput.log.
+grep: ptmr8t.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8t' failed to make ptmr8t.tfm.
+
+kpathsea: Running mktextfm ptmr8c
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8c
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf ptmr8c
+
+! I can't find file `ptmr8c'.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8c
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...:=ljfour; mag:=1; nonstopmode; input ptmr8c
+                                                  
+Transcript written on mfput.log.
+grep: ptmr8c.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmr8c' failed to make ptmr8c.tfm.
+
+kpathsea: Running mktextfm ptmri8t
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmri8t
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf ptmri8t
+
+! I can't find file `ptmri8t'.
+<*> ...=ljfour; mag:=1; nonstopmode; input ptmri8t
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...=ljfour; mag:=1; nonstopmode; input ptmri8t
+                                                  
+Transcript written on mfput.log.
+grep: ptmri8t.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input ptmri8t' failed to make ptmri8t.tfm.
+
+kpathsea: Running mktextfm phvr8t
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input phvr8t
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf phvr8t
+
+! I can't find file `phvr8t'.
+<*> ...:=ljfour; mag:=1; nonstopmode; input phvr8t
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...:=ljfour; mag:=1; nonstopmode; input phvr8t
+                                                  
+Transcript written on mfput.log.
+grep: phvr8t.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input phvr8t' failed to make phvr8t.tfm.
+
+kpathsea: Running mktextfm phvb8t
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input phvb8t
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf phvb8t
+
+! I can't find file `phvb8t'.
+<*> ...:=ljfour; mag:=1; nonstopmode; input phvb8t
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...:=ljfour; mag:=1; nonstopmode; input phvb8t
+                                                  
+Transcript written on mfput.log.
+grep: phvb8t.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input phvb8t' failed to make phvb8t.tfm.
+
+kpathsea: Running mktextfm nullfont
+mktextfm: Running mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input nullfont
+This is METAFONT, Version 2.718281 (TeX Live 2009/Debian)
+
+kpathsea: Running mktexmf nullfont
+
+! I can't find file `nullfont'.
+<*> ...ljfour; mag:=1; nonstopmode; input nullfont
+                                                  
+Please type another input file name
+! Emergency stop.
+<*> ...ljfour; mag:=1; nonstopmode; input nullfont
+                                                  
+Transcript written on mfput.log.
+grep: nullfont.log: No such file or directory
+mktextfm: `mf-nowin -progname=mf \mode:=ljfour; mag:=1; nonstopmode; input nullfont' failed to make nullfont.tfm.
+make: *** [webconsultingFTPtransfer.pdf] Error 1

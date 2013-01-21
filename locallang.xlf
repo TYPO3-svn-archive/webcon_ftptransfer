@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="" product-name="scheduler">
+		<header/>
+		<body>
+			<trans-unit id="transferFiles.name" xml:space="preserve">
+				<source>FTP Transfer</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.description" xml:space="preserve">
+				<source>Allows to transfer files via FTP on a regular time base. If files get transfered from the local machine to another server you can move the files to another local location after successfull transfer. When transfers succeed/fail it can get configured to have an email message sent.</source>
+			</trans-unit>
+			<trans-unit id="container.name" xml:space="preserve">
+				<source>Container</source>
+			</trans-unit>
+			<trans-unit id="container.description" xml:space="preserve">
+				<source>This task can act as container for other tasks. Each task listed herein will get executed in a chain. One task can pass data to other tasks using a specified interface.</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.label_ftp" xml:space="preserve">
+				<source>&lt;strong&gt;FTP configuration&lt;/strong&gt;</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.ftp_hostname" xml:space="preserve">
+				<source>FTP hostname</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.ftp_port" xml:space="preserve">
+				<source>FTP port</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.ftp_username" xml:space="preserve">
+				<source>FTP username</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.ftp_password" xml:space="preserve">
+				<source>FTP password</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.label_path" xml:space="preserve">
+				<source>&lt;strong&gt;Path configuration&lt;/strong&gt;</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.path_source" xml:space="preserve">
+				<source>Source path</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.path_failed" xml:space="preserve">
+				<source>Failed path</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.path_target" xml:space="preserve">
+				<source>Target path</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.label_logging" xml:space="preserve">
+				<source>&lt;strong&gt;Logging configuration&lt;/strong&gt;</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.config_doLog" xml:space="preserve">
+				<source>Perform logging</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.config_logPid" xml:space="preserve">
+				<source>Log page UID</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.config_targetMove" xml:space="preserve">
+				<source>Move to target location instead of copy</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.config_failedMove" xml:space="preserve">
+				<source>Move to failure location instead of copy</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.config_targetChainTask" xml:space="preserve">
+				<source>Chained task for target location success&lt;br /&gt;(This makes only sense when not moving)</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.config_failedChainTask" xml:space="preserve">
+				<source>Chained task for failure location success&lt;br /&gt;(This makes only sense when not moving)</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.config_fatalChainTask" xml:space="preserve">
+				<source>Chained task for fatal files</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.label_email" xml:space="preserve">
+				<source>&lt;strong&gt;E-Mail addresses&lt;/strong&gt;</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.config_emailSuccess" xml:space="preserve">
+				<source>Success e-mail</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.config_emailFailed" xml:space="preserve">
+				<source>Failed e-mail</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.config_emailFatal" xml:space="preserve">
+				<source>Fatal e-mail</source>
+			</trans-unit>
+			<trans-unit id="transferFiles.fields.config_emailSender" xml:space="preserve">
+				<source>Sender email</source>
+			</trans-unit>
+			<trans-unit id="scheduler_container.fields.taskChain" xml:space="preserve">
+				<source>UID of chained tasks as comma separated list</source>
+			</trans-unit>
+			<trans-unit id="fieldError.type.path" xml:space="preserve">
+				<source>You have to fill in a valid filesystem or FTP path&lt;br /&gt;The path must exist and has to point to a directory</source>
+			</trans-unit>
+			<trans-unit id="fieldError.field.path_failed" xml:space="preserve">
+				<source>This field is optional.&lt;br /&gt;If filled, the path must exist and has to point to a directory&lt;br /&gt;</source>
+			</trans-unit>
+			<trans-unit id="fieldError.field.ftp_hostname" xml:space="preserve">
+				<source>You have to fill in a valid FTP hostname or IP address</source>
+			</trans-unit>
+			<trans-unit id="fieldError.field.ftp_port" xml:space="preserve">
+				<source>You have to fill in a valid IP port</source>
+			</trans-unit>
+			<trans-unit id="fieldError.field.ftp_username" xml:space="preserve">
+				<source>You have to fill in a valid FTP username</source>
+			</trans-unit>
+			<trans-unit id="fieldError.field.ftp_password" xml:space="preserve">
+				<source>You have to fill in a valid FTP password</source>
+			</trans-unit>
+			<trans-unit id="fieldError.field.config_logPid" xml:space="preserve">
+				<source>You have to fill in the UID of a TYPO3 page where logs should get stored</source>
+			</trans-unit>
+			<trans-unit id="fieldError.type.email" xml:space="preserve">
+				<source>You have to fill in a valid email address</source>
+			</trans-unit>
+			<trans-unit id="fieldErrorTitle" xml:space="preserve">
+				<source>Invalid input</source>
+			</trans-unit>
+			<trans-unit id="fieldErrorDefault" xml:space="preserve">
+				<source>The input for this field is not valid</source>
+			</trans-unit>
+			<trans-unit id="fieldErrorTop" xml:space="preserve">
+				<source>Some of the fields regarding the FTP transfer have not been filled correctly</source>
+			</trans-unit>
+			<trans-unit id="logLabel.filename" xml:space="preserve">
+				<source>Filename</source>
+			</trans-unit>
+			<trans-unit id="logLabel.filesize" xml:space="preserve">
+				<source>Size in bytes</source>
+			</trans-unit>
+			<trans-unit id="logLabel.successTargetName" xml:space="preserve">
+				<source>Target filename after successfull transfer</source>
+			</trans-unit>
+			<trans-unit id="logLabel.failureTargetName" xml:space="preserve">
+				<source>Target filename after failed transfer</source>
+			</trans-unit>
+			<trans-unit id="logLabel.radio.success" xml:space="preserve">
+				<source>Success</source>
+			</trans-unit>
+			<trans-unit id="logLabel.radio.failed" xml:space="preserve">
+				<source>Failed</source>
+			</trans-unit>
+			<trans-unit id="logLabel.errors" xml:space="preserve">
+				<source>Error messages</source>
+			</trans-unit>
+			<trans-unit id="logLabel.tstamp" xml:space="preserve">
+				<source>Timestamp</source>
+			</trans-unit>
+			<trans-unit id="mailSubject.success" xml:space="preserve">
+				<source>Upload of file succeeded</source>
+			</trans-unit>
+			<trans-unit id="mailSubject.failed" xml:space="preserve">
+				<source>WARNING: Upload of file failed</source>
+			</trans-unit>
+			<trans-unit id="mailSubject.fatal" xml:space="preserve">
+				<source>ERROR: Can't move file to failure location</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

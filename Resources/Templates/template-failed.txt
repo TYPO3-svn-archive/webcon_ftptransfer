@@ -1,0 +1,28 @@
+Beim Versuch eine Datei mit folgendem Namen:
+-----------------------------------------------------------------
+###file###
+-----------------------------------------------------------------
+
+auf den FTP Server zu übertragen ist leider ein Fehler aufgetreten:
+-----------------------------------------------------------------
+###errors###
+-----------------------------------------------------------------
+
+Zielverzeichniss am Server war:
+-----------------------------------------------------------------
+###target###
+-----------------------------------------------------------------
+
+Die Datei wurde nun zwischenzeitlich unter folgendem Namen und
+Verzeichnis auf dem lokalen System abgelegt:
+-----------------------------------------------------------------
+###failureTargetName###
+
+###failed###
+-----------------------------------------------------------------
+
+
+Dies ist eine automatisch generierte Nachricht.
+Bitte antworten Sie nicht auf dieses Mail.
+--
+web:consulting FTP services

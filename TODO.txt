@@ -1,0 +1,5 @@
+
+* Move the "container" scheduler task to an extension on its own. Or better: Integrate it into the scheduler extension.
+
+* Try to use autoloader
+

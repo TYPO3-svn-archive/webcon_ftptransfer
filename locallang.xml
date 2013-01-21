@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Labels for webcon_ftptransfer</description>
+		<type>database</type>
+		<csh_table></csh_table>
+		<labelContext type="array">
+		</labelContext>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="transferFiles.name">FTP Transfer</label>
+			<label index="transferFiles.description">Allows to transfer files via FTP on a regular time base. If files get transfered from the local machine to another server you can move the files to another local location after successfull transfer. When transfers succeed/fail it can get configured to have an email message sent. </label>
+			<label index="container.name">Container</label>
+			<label index="container.description">This task can act as container for other tasks. Each task listed herein will get executed in a chain. One task can pass data to other tasks using a specified interface.</label>
+			<label index="transferFiles.fields.label_ftp">&lt;strong&gt;FTP configuration&lt;/strong&gt;</label>
+			<label index="transferFiles.fields.ftp_hostname">FTP hostname</label>
+			<label index="transferFiles.fields.ftp_port">FTP port</label>
+			<label index="transferFiles.fields.ftp_username">FTP username</label>
+			<label index="transferFiles.fields.ftp_password">FTP password</label>
+			<label index="transferFiles.fields.label_path">&lt;strong&gt;Path configuration&lt;/strong&gt;</label>
+			<label index="transferFiles.fields.path_source">Source path</label>
+			<label index="transferFiles.fields.path_failed">Failed path</label>
+			<label index="transferFiles.fields.path_target">Target path</label>
+			<label index="transferFiles.fields.label_logging">&lt;strong&gt;Logging configuration&lt;/strong&gt;</label>
+			<label index="transferFiles.fields.config_doLog">Perform logging</label>
+			<label index="transferFiles.fields.config_logPid">Log page UID</label>
+			<label index="transferFiles.fields.label_email">&lt;strong&gt;E-Mail addresses&lt;/strong&gt;</label>
+			<label index="transferFiles.fields.config_emailSuccess">Success e-mail</label>
+			<label index="transferFiles.fields.config_emailFailed">Failed e-mail</label>
+			<label index="transferFiles.fields.config_emailFatal">Fatal e-mail</label>
+			<label index="transferFiles.fields.config_emailSender">Sender email</label>
+			<label index="transferFiles.fields.config_targetMove">Move to target location instead of copy</label>
+			<label index="transferFiles.fields.config_failedMove">Move to failure location instead of copy</label>
+			<label index="transferFiles.fields.config_targetChainTask">Chained task for target location success&lt;br /&gt;(This makes only sense when not moving)</label>
+			<label index="transferFiles.fields.config_failedChainTask">Chained task for failure location success&lt;br /&gt;(This makes only sense when not moving)</label>
+			<label index="transferFiles.fields.config_fatalChainTask">Chained task for fatal files</label>
+			<label index="scheduler_container.fields.taskChain">UID of chained tasks as comma separated list</label>
+			<label index="fieldError.type.path">You have to fill in a valid filesystem or FTP path&lt;br /&gt;The path must exist and has to point to a directory</label>
+			<label index="fieldError.field.path_failed">This field is optional.&lt;br /&gt;If filled, the path must exist and has to point to a directory&lt;br /&gt;</label>
+			<label index="fieldError.field.ftp_hostname">You have to fill in a valid FTP hostname or IP address</label>
+			<label index="fieldError.field.ftp_port">You have to fill in a valid IP port</label>
+			<label index="fieldError.field.ftp_username">You have to fill in a valid FTP username</label>
+			<label index="fieldError.field.ftp_password">You have to fill in a valid FTP password</label>
+			<label index="fieldError.field.config_logPid">You have to fill in the UID of a TYPO3 page where logs should get stored</label>
+			<label index="fieldError.type.email">You have to fill in a valid email address</label>
+			<label index="fieldErrorTitle">Invalid input</label>
+			<label index="fieldErrorDefault">The input for this field is not valid</label>
+			<label index="fieldErrorTop">Some of the fields regarding the FTP transfer have not been filled correctly</label>
+			<label index="logLabel.filename">Filename</label>
+			<label index="logLabel.filesize">Filesize</label>
+			<label index="logLabel.successTargetName">Target filename after successfull transfer</label>
+			<label index="logLabel.failureTargetName">Target filename after failed transfer</label>
+			<label index="logLabel.radio.success">Success</label>
+			<label index="logLabel.radio.failed">Failed</label>
+			<label index="logLabel.errors">Error messages</label>
+			<label index="logLabel.tstamp">Timestamp</label>
+			<label index="mailSubject.success">Upload of file succeeded</label>
+			<label index="mailSubject.failed">WARNING: Upload of file failed</label>
+			<label index="mailSubject.fatal">ERROR: Can't move file to failure location</label>
+		</languageKey>
+	</data>
+</T3locallang>

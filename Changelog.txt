@@ -1,0 +1,25 @@
+
+2013-01-21 Bernhard Kraft <kraft@web-consulting.at>
+	* Writing documentation and upload to forge.typo3.org
+
+2013-01-16 Bernhard Kraft <kraft@web-consulting.at>
+	* Bug hunting, live system integration and minor fixed and adaptions
+
+2013-01-15 Bernhard Kraft <kraft@web-consulting.at>
+	* Finding and correcting syntax errors and bugs for location object handlers
+	* Implementing logging via log-table containing all necessary information about moved/copied files
+	* Implementing the e-mail notification feature
+
+2013-01-14 Bernhard Kraft <kraft@web-consulting.at>
+	* Finished additional field task manager configuration class
+	* Location objects for "local" and "FTP" handling
+
+2013-01-14 Bernhard Kraft <kraft@web-consulting.at>
+	* Finished additional field task manager configuration class
+
+2013-01-10 Bernhard Kraft <kraft@web-consulting.at>
+	* Started working on transfer classes for handling ftp/local file locations for transfering files (and a class "locationNone" as dummy base class)
+	* Put together structure of this extension
+	* Created additional field class for having additional configuration fields
+	* Created validator class and extended validator class for scheduler configuration field handling
+
