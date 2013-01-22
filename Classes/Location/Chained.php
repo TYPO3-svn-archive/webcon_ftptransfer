@@ -54,13 +54,15 @@ class tx_webconFtptransfer_LocationChained implements tx_webconFtptransfer_Locat
 	public function init(tx_webconFtptransfer_transferFiles &$rootObject, $path, $type) {
 		$this->rootObject = &$rootObject;
 		$this->path = $path;
-		if (($path != 'target') && ($path != 'failed') && ($path != 'fatal')) {
+		if (($path != 'success') && ($path != 'failed') && ($path != 'fatal')) {
 				// These are the only "paths" which the LocationChaind class can handle.
+			$this->error('Only paths allowed for chained locations are "success", "failed" and "fatal"', t3lib_FlashMessage::ERROR);
 			return false;
 		}
 		$this->type = $type;
 		if ($type !== 'source') {
 				// This class can only get used as source
+			$this->error('Chained locations are only valid as source', t3lib_FlashMessage::ERROR);
 			return false;
 		}
 		return true;

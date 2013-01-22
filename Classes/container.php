@@ -61,12 +61,15 @@ class tx_scheduler_container extends tx_scheduler_Task implements tx_scheduler_c
 		$taskUids = t3lib_div::trimExplode(',', $taskChain, 1);
 		$this->chainData[__CLASS__]['tasksCount'] = count($taskUids);
 		$cnt = 0;
+		$result = true;
 		foreach ($taskUids as $taskUid) {
 			$this->chainData[__CLASS__]['taskIndex'] = $cnt++;
-			$this->executeChainedTask($taskUid);
+			$result &= $this->executeChainedTask($taskUid);
 		}
 
-			// Return wheter this scheduler task succeeded.
+			// Return true whether each task succeeded or not.
+			// A result of "false" would keep the container task from being executed any further
+//		return $result;
 		return true;
 	}
 
@@ -85,27 +88,34 @@ class tx_scheduler_container extends tx_scheduler_Task implements tx_scheduler_c
 				try {
 					if ($task instanceof tx_scheduler_chainableTask) {
 						$task->set_chainData($this->chainData);
-					}
-					$this->scheduler->executeTask($task);
-					if ($task instanceof tx_scheduler_chainableTask) {
+						$this->scheduler->executeTask($task);
 						$this->chainData[$taskKey] = $task->get_chainDataElement();
+					} else {
+						$this->scheduler->executeTask($task);
 					}
 				}
 				catch (Exception $e) {
 						// We ignore any exception that may have been thrown during execution,
 						// as this is a background process.
 						// The exception message has been recorded to the database anyway
-					continue;
+						// Simply return false to signal an error
+					return false;
 				}
 			}
+
+                        	// The supplied task UID is not valid
+				// Return false to signal an error
 			catch (OutOfBoundsException $e) {
-	                        	// There are no more tasks for this container
-				break;
+				return false;
 			}
-				// A task could not be unserialized properly, skip to next task
+
+				// A task could not be unserialized properly, 
+				// Return false to signal an error
 			catch (UnexpectedValueException $e) {
-				continue;
+				return false;
 			}
+				// Only returns true when everything went fine
+			return true;
 	}
 
 

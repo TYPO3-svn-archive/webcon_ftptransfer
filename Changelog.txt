@@ -1,4 +1,11 @@
 
+2013-01-22 Bernhard Kraft <kraft@web-consulting.at>
+	* Upload to TER
+	* Commit to forge SVN
+	* Changed the "target" value of a "chain" paths to "success" as this rather matches application logic
+	* Fixed a bug with innappropriate exeception handling of containers
+	* Finished documentation in ReST format (manual.pdf and html/ in "doc" directory)
+
 2013-01-21 Bernhard Kraft <kraft@web-consulting.at>
 	* Writing documentation and upload to forge.typo3.org
 

@@ -38,7 +38,7 @@ class tx_webconFtpTransfer_fieldValidator extends tx_webcon_fieldValidator {
 
 		// This is the prefix which can get used before a path to denote that the path should handle results of previous chained tasks
 	static $chainPathPrefix = 'chain:';
-	static $allowedChainPaths = array('target', 'failed', 'fatal');
+	static $allowedChainPaths = array('success', 'failed', 'fatal');
 
 
 	/**
@@ -68,7 +68,7 @@ class tx_webconFtpTransfer_fieldValidator extends tx_webcon_fieldValidator {
 				return false;
 			}
 				// If the path has a prefix "chain:" remove this for validation.
-				// The rest of the path must be one of the values "target/failed/fatal"
+				// The rest of the path must be one of the values "success/failed/fatal"
 			$value = substr($value, strlen(self::$chainPathPrefix));
 				// Only paths in "$allowedChainPaths" are valid
 			if (in_array($value, self::$allowedChainPaths)) {

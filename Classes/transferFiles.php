@@ -60,7 +60,7 @@ class tx_webconFtptransfer_transferFiles extends tx_scheduler_Task implements tx
 
 		// Will contain all handled files depending on the outcome of their transfer
 	private $transferedFiles = array(
-		'target' => array(),
+		'success' => array(),
 		'failed' => array(),
 		'fatal' => array(),
 	);
@@ -233,7 +233,7 @@ class tx_webconFtptransfer_transferFiles extends tx_scheduler_Task implements tx
 			// This is done in the "heterogenCopy" method of the location instance.
 		$successTargetName = $this->location['target']->putFile($file);
 		if ($successTargetName !== false) {
-			$this->transferedFiles['target'][] = $file;
+			$this->transferedFiles['success'][] = $file;
 		} else {
 				// If putting file didn't succeed try to put it to the failed location
 			$failureTargetName = $this->location['failed']->putFile($file);
