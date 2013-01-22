@@ -1,5 +1,6 @@
 
 2013-01-22 Bernhard Kraft <kraft@web-consulting.at>
+	* Fixed required scheduler version in ext_emconf.php
 	* Upload to TER
 	* Commit to forge SVN
 	* Changed the "target" value of a "chain" paths to "success" as this rather matches application logic
