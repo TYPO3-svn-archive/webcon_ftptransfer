@@ -116,7 +116,9 @@ class tx_webconFtptransfer_transferFiles extends tx_scheduler_Task implements tx
 		$this->emailSuccess = $this->parseEmailAddresses($this->get_ConfigOption('emailSuccess'));
 		$this->emailFailed = $this->parseEmailAddresses($this->get_ConfigOption('emailFailed'));
 		$this->emailFatal = $this->parseEmailAddresses($this->get_ConfigOption('emailFatal'));
-		$this->emailSender = $this->parseEmailAddresses($this->get_ConfigOption('emailSender'));
+		$tmpSender = $this->parseEmailAddresses($this->get_ConfigOption('emailSender'));
+		$this->emailSender = array_slice($tmpSender, 0, 1, true);
+		
 
 		$swiftVersion = file_get_contents(PATH_site.'typo3/contrib/swiftmailer/VERSION');
 		$swiftVersion = str_replace('Swift-', '', $swiftVersion);
@@ -132,39 +134,22 @@ class tx_webconFtptransfer_transferFiles extends tx_scheduler_Task implements tx
 	 * @return	void
 	 */
 	protected function parseEmailAddresses($emails) {
-		$parts = t3lib_div::trimExplode(',', $emails, true);
-		$result = array();
-		if ($this->newSwiftVersion) {
-			foreach ($parts as $email) {
-				if (preg_match('/^([^<]+)<([^>]+@[^>]+)>\s*$/', $email, $matches)) {
-					if (t3lib_div::validEmail($matches[2])) {
-						$result[] = array($matches[2] => $matches[1]);
-					}
-				} else {
-					if (t3lib_div::validEmail($email)) {
-						$result[] = array($email);
-					}
-				}
+			// Taken from t3lib/mail/class.t3lib_mail_swiftmaileradapter.php
+			// Is protected there.
+			/** @var $addressParser t3lib_mail_Rfc822AddressesParser */
+		$addressParser = t3lib_div::makeInstance('t3lib_mail_Rfc822AddressesParser', $emails);
+		$addresses = $addressParser->parseAddressList();
+		$addressList = array();
+		foreach ($addresses as $address) {
+			if ($address->personal) {
+				// item with name found ( name <email@example.org> )
+				$addressList[$address->mailbox . '@' . $address->host] = $address->personal;
+			} elseif ($address->mailbox) {
+				// item without name found ( email@example.org )
+				$addressList[] = $address->mailbox . '@' . $address->host;
 			}
-			if (count($result) == 1) {
-					// If there is only ONE email address don't put it in an array
-				$result = array_pop($result);
-			}
-		} else {
-			foreach ($parts as $email) {
-				if (preg_match('/^([^<]+)<([^>]+@[^>]+)>\s*$/', $email, $matches)) {
-					if (t3lib_div::validEmail($matches[2])) {
-						$result[] = $matches[2];
-					}
-				} else {
-					if (t3lib_div::validEmail($email)) {
-						$result[] = $email;
-					}
-				}
-			}
-			$result = array_shift($result);
 		}
-		return $result;
+		return $addressList;
 	}
 
 
@@ -179,7 +164,7 @@ class tx_webconFtptransfer_transferFiles extends tx_scheduler_Task implements tx
 			// Will be the return value of this method
 		$finishedWithoutFatalErrors = true;
 
-		if ($this->initLocations()) {
+		if ($this->initLocations() && $this->location['source']->init()) {
 				// Retrieve all files which have to get transfered
 			$files = $this->location['source']->getFiles();
 				// Iterate over all files
@@ -192,6 +177,7 @@ class tx_webconFtptransfer_transferFiles extends tx_scheduler_Task implements tx
 				// Log to database
 			if ($this->doLog) {
 				$GLOBALS['TYPO3_DB']->exec_INSERTquery('tx_webconftptransfer_log', $result);
+				$this->logId = $GLOBALS['TYPO3_DB']->sql_insert_id();
 			}
 			if (count($this->emailFatal)) {
 				$this->sendMail('fatal', $this->emailFatal, $result);
@@ -210,8 +196,9 @@ class tx_webconFtptransfer_transferFiles extends tx_scheduler_Task implements tx
 	 * @return	boolean	Returns true if the transfer to the target (or at least to the "failed" target) succeeded
 	 */
 	protected function transferFile($file) {
-			// Reset variables used in this loop
+			// Reset variables used in this method
 		$failureTargetName = false;
+		$successTargetName = false;
 		$this->errors = array();
 
 			// Put file to target location
@@ -231,12 +218,16 @@ class tx_webconFtptransfer_transferFiles extends tx_scheduler_Task implements tx
 			// target location object creats an instance for an target file object. Then the game can be
 			// turned around and the source location (file) can get asked to write the data to the target file.
 			// This is done in the "heterogenCopy" method of the location instance.
-		$successTargetName = $this->location['target']->putFile($file);
+		if ($this->location['target']->init()) {
+			$successTargetName = $this->location['target']->putFile($file);
+		}
 		if ($successTargetName !== false) {
 			$this->transferedFiles['success'][] = $file;
 		} else {
 				// If putting file didn't succeed try to put it to the failed location
-			$failureTargetName = $this->location['failed']->putFile($file);
+			if ($this->location['failed']->init()) {
+				$failureTargetName = $this->location['failed']->putFile($file);
+			}
 			if ($failureTargetName !== false) {
 				$this->transferedFiles['failed'][] = $file;
 			} else {
@@ -254,6 +245,7 @@ class tx_webconFtptransfer_transferFiles extends tx_scheduler_Task implements tx
 			// Log to database
 		if ($this->doLog) {
 			$GLOBALS['TYPO3_DB']->exec_INSERTquery('tx_webconftptransfer_log', $result);
+			$this->logId = $GLOBALS['TYPO3_DB']->sql_insert_id();
 		}
 
 			// Handle sending of emails
@@ -327,8 +319,8 @@ class tx_webconFtptransfer_transferFiles extends tx_scheduler_Task implements tx
 			$this->set_Error('Object for handling "'.$type.'" location does not implement "tx_webconFtptransfer_location" interface!', t3lib_FlashMessage::ERROR);
 			return false;
 		}
-			// Initialize the location (FTP connect, etc.)
-		return $this->location[$type]->init($this, $path, $type);
+			// Prepare the location (Set FTP credentials, etc.)
+		return $this->location[$type]->prepare($this, $path, $type);
 	}
 
 	/*
@@ -343,6 +335,7 @@ class tx_webconFtptransfer_transferFiles extends tx_scheduler_Task implements tx
 		global $LANG;
 		$template = t3lib_div::getURL(t3lib_extMgm::extPath('webcon_ftptransfer').'Resources/Templates/template-'.$type.'.txt');
 		if (strlen($template)) {
+			$data['logId'] = $this->logId;
 			$message = t3lib_parsehtml::substituteMarkerArray($template, $data, '###|###');
 			$mail = t3lib_div::makeInstance('t3lib_mail_message');
 			if (count($this->emailSender)) {

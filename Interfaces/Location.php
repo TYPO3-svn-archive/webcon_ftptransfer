@@ -32,17 +32,26 @@ require_once(t3lib_extMgm::extPath('webcon_ftptransfer').'Classes/File/Abstract.
  * @package	TYPO3
  * @subpackage	webcon_ftptransfer
  */
-interface tx_webconFtptransfer_location{
+interface tx_webconFtptransfer_Location {
 
 	/*
-	 * Initializes this location
+	 * Prepare this location
+	 * The location is prepared in all cases - even if it will not get used
 	 *
 	 * @param	tx_webconFtptransfer_transferFiles	$parentObject: A reference to the parent object instance
 	 * @param	string	$path: The path which should get handled by an instance of this object
 	 * @param	string	$type: The type of location this instance is used as (source/target/failed)
 	 * @return	boolean	Returns true if initalizing this location succeeded (path is fine, etc.)
 	 */
-	public function init(tx_webconFtptransfer_transferFiles &$parentObject, $path, $type);
+	public function prepare(tx_webconFtptransfer_transferFiles &$parentObject, $path, $type);
+
+	/*
+	 * Initialize this location
+	 * The "init" method of a location object will only get called before the location gets used (to retrieve a file list, or put/get files)
+	 *
+	 * @return	boolean	Returns true if initalizing this location succeeded (connecting to some server succeeded, etc.)
+	 */
+	public function init();
 
 	/*
 	 * Returns all files which can get transfered FROM this location

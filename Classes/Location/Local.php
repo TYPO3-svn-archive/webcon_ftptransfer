@@ -42,15 +42,15 @@ class tx_webconFtptransfer_LocationLocal extends tx_webconFtptransfer_LocationAb
 	protected $absolutePath = '';
 
 	/*
-	 * Initializes this location
+	 * Prepares this location
 	 *
 	 * @param	tx_webconFtptransfer_transferFiles	$rootObject: A reference to the root object instance (scheduler task)
 	 * @param	string	$path: The path which should get handled by an instance of this object
 	 * @param	string	$type: The type of location this instance is used as (source/target/failed)
 	 * @return	boolean	Returns true if initalizing this location succeeded (path is fine, etc.)
 	 */
-	public function init(tx_webconFtptransfer_transferFiles &$rootObject, $path, $type) {
-		if (!parent::init($rootObject, $path, $type)) {
+	public function prepare(tx_webconFtptransfer_transferFiles &$rootObject, $path, $type) {
+		if (!parent::prepare($rootObject, $path, $type)) {
 			$this->error('Initializing parent object failed', t3lib_FlashMessage::ERROR);
 			return false;
 		}
@@ -91,6 +91,16 @@ class tx_webconFtptransfer_LocationLocal extends tx_webconFtptransfer_LocationAb
 		$this->handle = dir($this->path);
 		return $this->handle ? true : false;
 		
+	}
+
+	/*
+	 * Initializes this location
+	 *
+	 * @return	boolean	Returns true
+	 */
+	public function init() {
+			// All checks for local locations have already been done in the "prepare" method
+		return true;
 	}
 
 	/*

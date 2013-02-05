@@ -48,7 +48,7 @@ abstract class tx_webconFtptransfer_LocationAbstract {
 	 * @param	string	$type: The type of location this instance is used as (source/target/failed)
 	 * @return	boolean	Returns true if initalizing this location succeeded (path is fine, etc.)
 	 */
-	public function init(tx_webconFtptransfer_transferFiles &$rootObject, $path, $type) {
+	public function prepare(tx_webconFtptransfer_transferFiles &$rootObject, $path, $type) {
 		$this->rootObject = &$rootObject;
 		$this->path = $path;
 		$this->type = $type;

@@ -1,11 +1,7 @@
 
-2013-01-22 Bernhard Kraft <kraft@web-consulting.at>
-	* Fixed required scheduler version in ext_emconf.php
-	* Upload to TER
-	* Commit to forge SVN
-	* Changed the "target" value of a "chain" paths to "success" as this rather matches application logic
-	* Fixed a bug with innappropriate exeception handling of containers
-	* Finished documentation in ReST format (manual.pdf and html/ in "doc" directory)
+2013-02-05 Bernhard Kraft <kraft@web-consulting.at>
+	* Now FTP connections only get established if there are really files to get transfered (or if FTP is the source)
+	* Mails can get sent to multiple email addresses now by using a comma separated list of emails
 
 2013-01-21 Bernhard Kraft <kraft@web-consulting.at>
 	* Writing documentation and upload to forge.typo3.org

@@ -44,27 +44,36 @@ class tx_webconFtptransfer_LocationChained implements tx_webconFtptransfer_Locat
 	protected $type = '';
 
 	/*
-	 * Initializes this location
+	 * Prepare this location
 	 *
 	 * @param	tx_webconFtptransfer_transferFiles	$rootObject: A reference to the root object instance (scheduler task)
 	 * @param	string	$path: The path which should get handled by an instance of this object
 	 * @param	string	$type: The type of location this instance is used as (source/target/failed)
 	 * @return	boolean	Returns true if initalizing this location succeeded (path is fine, etc.)
 	 */
-	public function init(tx_webconFtptransfer_transferFiles &$rootObject, $path, $type) {
+	public function prepare(tx_webconFtptransfer_transferFiles &$rootObject, $path, $type) {
 		$this->rootObject = &$rootObject;
 		$this->path = $path;
-		if (($path != 'success') && ($path != 'failed') && ($path != 'fatal')) {
+		$this->type = $type;
+		if (($this->path != 'success') && ($this->path != 'failed') && ($this->path != 'fatal')) {
 				// These are the only "paths" which the LocationChaind class can handle.
 			$this->error('Only paths allowed for chained locations are "success", "failed" and "fatal"', t3lib_FlashMessage::ERROR);
 			return false;
 		}
-		$this->type = $type;
-		if ($type !== 'source') {
+		if ($this->type !== 'source') {
 				// This class can only get used as source
 			$this->error('Chained locations are only valid as source', t3lib_FlashMessage::ERROR);
 			return false;
 		}
+		return true;
+	}
+
+	/*
+	 * Initialize this location
+	 *
+	 * @return	boolean	Returns true
+	 */
+	public function init() {
 		return true;
 	}
 
@@ -75,7 +84,7 @@ class tx_webconFtptransfer_LocationChained implements tx_webconFtptransfer_Locat
 	 */
 	public function getFiles() {
 		$files = $this->rootObject->get_chainDataElement();
-		return $files[$this->path];
+		return is_array($files) && is_array($files[$this->path]) ? $files[$this->path] : array();
 	}
 
 	/*

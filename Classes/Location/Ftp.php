@@ -44,24 +44,44 @@ class tx_webconFtptransfer_LocationFtp extends tx_webconFtptransfer_LocationAbst
 
 	/*
 	 * Initializes this location
+	 * Connecting to the FTP server is moved to a method on its own so connections get only established if there is really the need to
 	 *
 	 * @param	tx_webconFtptransfer_transferFiles	$rootObject: A reference to the root object instance (scheduler task)
 	 * @param	string	$path: The path which should get handled by an instance of this object
 	 * @param	string	$type: The type of location this instance is used as (source/target/failed)
 	 * @return	boolean	Returns true if initalizing this location succeeded (path is fine, etc.)
 	 */
-	public function init(tx_webconFtptransfer_transferFiles &$rootObject, $path, $type) {
-		if (!parent::init($rootObject, $path, $type)) {
-			$this->error('Initializing parent object failed', t3lib_FlashMessage::ERROR);
+	public function prepare(tx_webconFtptransfer_transferFiles &$rootObject, $path, $type) {
+		if (!parent::prepare($rootObject, $path, $type)) {
+			$this->error('Preparing parent object failed', t3lib_FlashMessage::ERROR);
 			return false;
 		}
 		if (substr($this->path, -1) == '/') {
 			$this->path = substr($this->path, 0, -1);
 		}
-		$hostname = $rootObject->get_FtpOption('hostname');
-		$port = $rootObject->get_FtpOption('port');
-		$username = $rootObject->get_FtpOption('username');
-		$password = $rootObject->get_FtpOption('password');
+		return true;
+	}
+
+	/*
+	 * Connecting to the FTP server
+	 *
+	 * @return	boolean	Returns true if initalizing this location succeeded (path is fine, etc.)
+	 */
+	public function init() {
+		if ($this->handle) {
+			$tmpPath = @ftp_pwd($this->handle);
+			if (($tmpPath !== false) && ($this->absolutePath == $tmpPath)) {
+					// Already connected
+				return true;
+			} else {
+				$this->error('Seems to be already connected but doesn\'t return correct path.', t3lib_FlashMessage::ERROR);
+				return false;
+			}
+		}
+		$hostname = $this->rootObject->get_FtpOption('hostname');
+		$port = $this->rootObject->get_FtpOption('port');
+		$username = $this->rootObject->get_FtpOption('username');
+		$password = $this->rootObject->get_FtpOption('password');
 
 		$this->handle = ftp_connect($hostname, $port, $this->timeout);
 		if (!$this->handle) {
@@ -81,7 +101,6 @@ class tx_webconFtptransfer_LocationFtp extends tx_webconFtptransfer_LocationAbst
 		$this->absolutePath = @ftp_pwd($this->handle);
 			
 		return true;
-		
 	}
 
 	/*
