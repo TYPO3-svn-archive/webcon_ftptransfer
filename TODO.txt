@@ -3,3 +3,5 @@
 
 * Try to use autoloader
 
+* Create a class on its own for mail handling
+

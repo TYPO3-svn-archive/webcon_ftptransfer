@@ -3,6 +3,7 @@
 	* Now FTP connections only get established if there are really files to get transfered (or if FTP is the source)
 	* Mails can get sent to multiple email addresses now by using a comma separated list of emails
 	* Moved ReST documentation from "doc/source/index.rst" to "Documentation/Index.rst" so it should get rendered on typo3.org
+	* Updated TODO
 
 2013-01-21 Bernhard Kraft <kraft@web-consulting.at>
 	* Writing documentation and upload to forge.typo3.org
